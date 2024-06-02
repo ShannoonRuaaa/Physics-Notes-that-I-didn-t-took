@@ -1,0 +1,135 @@
+\documentclass[]{scrreprt}
+
+\usepackage{amsmath}
+% Title Page
+\title{}
+\author{}
+
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+	
+\end{abstract}
+\begin{section} {Kinematics}
+	\subsection{Key terms:}
+		\begin{enumerate}
+			\item[Acceleration:]
+				a change in velocity over time
+			
+			\item [Velocity:] 
+				a change in position over time, or the result of accumulated acceleration.
+			
+			\item [Position:]
+			 	where the particle is at, or the result of accumulated velocity.
+		\end{enumerate}
+		
+	\subsection{Basic Formulas:}
+		\begin{enumerate}
+			\item $x(t) = \frac{1}{2}at^2 + v_0t+x_0$
+			\item $v(t)=at+v_0$
+			\item $a(t) = a_0$
+		\end{enumerate}	
+	
+	\subsection{Change Formulas:} 
+		Defining $\Delta A = A - A_0$, meaning that the change in $A$ is the difference of the variable $A$ and the initial $A$ when $t = 0$ (or just simply $A_0$).
+			\begin{enumerate}
+				\item $\Delta x(t) = \frac{1}{2}at^2 + v_0t$
+				\item $\Delta v(t)=at$
+				\item $\Delta a(t) = 0$	
+			\end{enumerate}
+		Notice how only difference is that the constant terms disappeared because it is simplified to the term $\Delta$ which is the change of that variable. 
+	
+		\subsection{Extended formula:}
+		$$v^2 = v_0^2+2a\Delta x$$
+		$$x=x_0+\frac{(v_0+v)}{2}t$$
+	
+	\begin{subsection}{Understand the concept}
+		To understand the relationship quantitatively, we will show the relation between $v$, $a$, and $x$ and derive their relation from the base.
+		Assuming the only formula given is:
+		$$a(t) = a_0$$
+		we will start from $a$ to $v$:
+		the area under the graph $a$ vs $t$ as shown below:
+		%insert graph
+		the area is strictly a rectangle, therefore the term $at$ represents the accumulation of acceleration over the $t$. And with satisfactory, we have the formula 2, adding the constant term, we have the second formula.
+		
+		from $v$ to $a$:
+		$v(t) = =at+v_0$
+		With keen observation, the shape is simply a trapezoid. Divide it into a rectangle and triangle, 
+		%insert graph
+		Area of rectangle = $v_0t$
+		
+		Area of triangle = $\frac{1}{2} a t^2$
+		
+		sum it together gives formula 1, adding the constant term, we have the first formula.
+		
+		Notice the rectangle from the divided term is from its initial velocity, and the triangle is responsible for the acceleration. If the acceleration is $0$, the triangle will have $0$ area and the $v$ vs $t$ graph is a constant line again. If initial velocity is $0$, the graph will look like a triangle, and the position equation is $x(t) = 1/2 a t^2$
+				
+		Now we will start from position formula and work down the road to show that in a parabolic graph, acceleration is constant.
+		Given $x(t) = \frac{1}{2}at^2 + v_0t+x_0$ 
+		If we want to find the velocity at specific point $t$, we will find the change in position from $t-\delta$ to $t+\delta$ over a period of $2\delta$.
+		 $$v(t)\approx \frac{x(t+\delta)-x(t-\delta)}{2\delta}$$
+		 $$v(t)\approx \frac{(\frac{1}{2}a(t+\delta)^2 + v_0(t+\delta) + x_0)-
+		 					 (\frac{1}{2}a(t-\delta)^2 + v_0(t-\delta)+x_0)}{2\delta}$$
+	 	Combine like terms,
+	 	$$v(t)\approx \frac{[\frac{1}{2}a(t+\delta)^2-
+	 		\frac{1}{2}a(t-\delta)^2] + [v_0(t+\delta)-v_0(t-\delta)]+[x_0-x_0])}{2\delta}$$
+		 $$v(t) \approx \frac{[\frac{1}{2}a((t+\delta)+(t-\delta))\cdot((t+\delta)-(t-\delta))}{2\delta} + v_0$$
+		
+		$$v(t) \approx \frac{[\frac{1}{2}a((2t)\cdot(2\delta)}{2\delta} + v_0$$ 	
+		$$v(t)\approx at+v_0$$
+		So the value of delta doesn't matter in the calculation, and can be equal to any number that is not $0$. So if we allow it to be $10^{-99999999}$ the $v(t)$ is the same as $\delta = 10^{9999999}$.
+		$$v(t) = at+v_0$$
+		and since this graph is linear,
+		$a(t) = \frac{\delta v}{t} =a$		
+		We will gain a deeper understanding of the more complicated formula in Work Energy, but to conclude,
+		$$x = Sum (v) + x_0$$
+		$$v = \frac{\delta x}{\delta t} = Sum (a) + v_0$$
+		$$a = \frac{\delta v}{\delta t} = constant$$ 	
+\end{subsection} 
+\subsection{Kinematics in vectors}
+If the question require multiple dimensions, the formulas in scalar form works as follows.
+$$\vec{a} = 
+\begin{bmatrix}
+	a_1\\
+	a_2
+\end{bmatrix}$$
+$$\vec{v} = 
+\begin{bmatrix}
+	a_1 \\
+	a_2 
+\end{bmatrix}
+t+
+\begin{bmatrix}
+	v_1\\
+	v_2
+\end{bmatrix}
+$$
+$$\vec{x} = 
+\frac{1}{2}
+\begin{bmatrix}
+	a_1 \\
+	a_2 
+\end{bmatrix}
+t^2+
+\begin{bmatrix}
+	v_1\\
+	v_2
+\end{bmatrix}
+t+
+\begin{bmatrix}
+	x_1\\
+	x_2
+\end{bmatrix}
+$$
+
+\end{section}
+
+\subsection{problem}
+1. Show that $\frac{v+v_0}{2x} =\frac{v-v_0}{a}$ using either graph or equation and then prove the extended formula.
+
+2. Without using the extended formula, how fast will a steel ball be falling from a window that is $10$ m from the ground? How long will it take? And how about a wood ball?
+
+
+\end{document}          
