@@ -1,4 +1,5 @@
 \documentclass[]{article}
+\usepackage{amsmath}
 
 %opening
 \title{Newton's Laws}
@@ -8,26 +9,70 @@
 
 \maketitle
 
-\section{Newton's Laws}
-	\subsection{The 3 Laws}
-	\begin{enumerate}
+\section{Newton's Laws}\label{sec:newton's-laws}
+
+\subsection{The 3 Laws}\label{subsec:the-3-laws}
+\begin{enumerate}
 		\item[Law 1:] Things have mass, and they sit still when net force is 0. 
 		\item[Law 2:] $\Sigma F=ma$
 		\item[Law 3:] Push $+$ pull $=$ $0$
 	\end{enumerate}
 	\subsection{Law 1}
-		Mass is an abstract concept, artificially defined to measure how hard it is to move an object. Therefore, under a different scenario, it is possible to use another definition of mass. For now, we will look at every object as a point mass.
+		Mass is an abstract concept, artificially defined to measure how hard it is to move an object.
+		Therefore, under a different scenario, it is possible to use another definition of mass.
+		For now, we will look at every object as a point mass.
 		
 		A point mass is an object without a shape.
 	\subsection{Law 2}
 		This is the only useful formula, with variations like:
-		$$a= \frac{\Sigma F}{m}$$
-		$$m = \frac{\Sigma F} {a}$$
+		\begin{gather*}
+		    a_{net}= \frac{\Sigma F}{m}\\
+		    m = \frac{\Sigma F} {a_{net}}\\
+		\end{gather*}
 		Use this formula at your convenience.
 	\subsection{Law 3}
-		Just remember to draw a pair of arrows when drawing free body diagrams. This concept will be especially useful while understanding conservation of momentum.
-	
-	\section{Question:}
+		Just remember to draw a pair of arrows when drawing free body diagrams.
+		This concept will be especially useful while understanding conservation of momentum.
+	\section{Different Forces:}\label{sec:different-forces:}
+	\begin{enumerate}
+		\item Normal Force: The force that prevents objects from falling
+		through each other, a responsive force when surfaces push against
+		each other.
+		\[F_N\]
+		\item Tension: The force transmitted through a string, rope, cable or
+		similar one-dimensional continuous object.
+		\[T\]
+		\item Friction: The force that prevents objects from sliding past
+		each other, a resistive force that always acts in the opposite
+		direction to the motion.
+		\[f = \mu F_N\]
+		It is linearly proportional to the normal force, $\mu$ is called the
+		coefficient of friction. $\mu$ can be dependent on the
+		material of two surfaces, it can also change when the object
+		is in static or kinetic.
+		Usually $\mu_k < \mu_s$.
+		\item Gravity: The force that pulls objects towards each other.
+		When
+		the object is close to the surface of the Earth, the force is:
+		\[F = mg\]
+		However, when the object is far from the surface of the Earth, the
+		strength of the force falls off by square of the distance from the
+		center of the Earth.
+		\begin{gather*}
+		    F = -\frac{Gm_1m_2}{r^2}\\
+		    a_g = -\frac{Gm_1}{r^2}\\
+		\end{gather*}
+		$G$ is the gravitational constant that can be interpreted as the
+		strength of the force between two objects. Notice acceleration due to
+		gravity is linearly proportional to the mass of the object.
+
+		\item Spring Force: The force that prevents objects from stretching
+		or compressing a spring. It is linearly proportional to the distance
+		of compression or stretching. The negative sign indicates that the
+		force is always in the opposite direction to the displacement.
+		\[F = -k\Delta x\]
+	\end{enumerate}
+	\section{Question:}\label{sec:question:}
 	\begin{enumerate}
 		\item If all objects accelerate towards Earth at the same rate, why does it hurt more to be hit by an iron ball than to be hit by a football?
 	\end{enumerate}
