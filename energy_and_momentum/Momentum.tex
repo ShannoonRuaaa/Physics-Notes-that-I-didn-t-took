@@ -1,7 +1,7 @@
 \documentclass[]{article}
 \usepackage{amsmath}
 %opening
-\title{Momentum}
+\title{Energy and Momentum}
 \author{}
 
 \begin{document}
@@ -21,6 +21,10 @@ The two words can be used interchangeably, each came from an unique understandin
 	$$\Delta E = 0 \text{ When the forces are all conservative}$$
 	$$\Delta E = W_{NC} \text{ When non-conservative forces are present}$$ 
 \section{Formulas}	
+	\subsection{Friction}
+	When two surfaces are rubbing each other, they will get heat up very easily. Therefore, the work done by friction is transferred into heat energy, making the friction force a non-conservative force. As a non-conservative force, work done by friction is dependent to the path it takes. 
+	$$W_{fr} = F_{fr}\cdot \Delta x = \mu F_N \cdot \Delta x$$
+
 	\subsection{Kinetic Energy}
 	$$\Delta KE = m \frac{v_f^2 - v^2_i}{2}$$
 	$$KE = m\frac{v^2}{2}$$
@@ -50,19 +54,54 @@ The two words can be used interchangeably, each came from an unique understandin
 	\subsection{Potential Energy}
 		\subsubsection{Spring}
 			By Hooke's law, 
-			$$F = -k (x-x_0)$$
+			$$F = -k (x-x_0) = -k\Delta x$$
 			Since it is a linear graph, use the formula for area of an triangle and get:
-				$$PE = \frac{k\Delta x^2}{2}$$	
+				$$PE = \frac{k\Delta x^2}{21}$$	
 
 		
 \section{Momentum}
+$$L = mv$$
 Assuming you are at an inertial frame of reference, an object's momentum relative to you is $mv$. A change in an object's momentum is:
 $$\Delta L = m \Delta v$$
-A change in momentum must be caused by an outside force because of the second equation in kinematics ($\Delta v = a\Delta t$).
+A change in momentum must be caused by an outside force because of the second equation in kinematics ($\Delta v = \Sigma a\Delta t$).
+
+$$\Delta L = m\Delta v$$
+$$\Delta L = m\Sigma a \Delta t$$
+$$\Delta L = \Sigma m a \Delta t$$
+$$\Delta L = \Sigma F \Delta t$$
+Therefore, momentum is an alternate way of representing Newton's third law. Without outside forces, F will be $0$ (Newton's Third law) making the change of momentum $0$. 
+ 
 
 \section{Collisions}
 \subsubsection{Elastic}
+Elastic means that two objects does NOT stick together after the collision. A complete elastic collisions are those in which both kinetic energy and momentum are conserved. For a collision between two bodies labeled 1 and 2, the following two equations describe an elastic collision:
+
+$$E = \frac{1}{2} m_1 |\mathbf{v}_{1i}|^2 + \frac{1}{2} m_2 |\mathbf{v}_{2i}|^2 = \frac{1}{2} m_1 |\mathbf{v}_{1f}|^2 + \frac{1}{2} m_2 |\mathbf{v}_{2f}|^2$$
+
+\begin{enumerate}
+	\item $|\mathbf{v}_{1i}|$ and $|\mathbf{v}_{2i}|$ are the magnitudes of the initial velocities of bodies 1 and 2,
+
+	\item $|\mathbf{v}_{1f}|$ and $|\mathbf{v}_{2f}|$ are the magnitudes of the final velocities of bodies 1 and 2 after collision.
+
+\end{enumerate}
+$$L = m_1 \mathbf{v}_{1i} + m_2 \mathbf{v}_{2i} = m_1 \mathbf{v}_{1f} + m_2 \mathbf{v}_{2f}$$
+
+\begin{enumerate}
+\item $m_1$ and $m_2$ are the masses of bodies 1 and 2 respectively,
+
+\item $v_{1i}$ and $v_{2i}$ are the initial velocities of bodies 1 and 2,
+
+\item $v_{1f}$ and $v_{2f}$ are the final velocities of bodies 1 and 2 after collision.
+  
+\end{enumerate}
 \subsubsection{Inelastic}
+Inelastic means that the two object stick together after the collision. In an inelastic collision, momentum is conserved but kinetic energy is not. Instead, some of the kinetic energy is converted into potential energy in holding the body together. (converted into heat, sound, or movement is also acceptable)
+$$m_1 \mathbf{v}_{1i} + m_2 \mathbf{v}_{2i} = (m_1 +m_2)\mathbf{v}_{f}$$
+When a body is split into two or more separate parts, it is also an type of inelastic collision called reverse inelastic collision. 
+$$(m_1 +m_2)\mathbf{v}_{i} = m_1 \mathbf{v}_{1f} + m_2 \mathbf{v}_{2f} $$
+
+To understand why energy is not conserved conceptually, we can use reverse inelastic collision as an example. When the observer is traveling at the same speed as $\mathbf{v}_{i}$, the object will remain static to the observer. At some point in time, the observer will see the parts of the object traveling at a speed of $\mathbf{v}_{1f} -\mathbf{v}_{i}$ and  $\mathbf{v}_{2f} -\mathbf{v}_{i}$ away from the observer. So the kinetic energy went from $0$ relative to the observe to $\frac{1}{2} m_1(\mathbf{v}_{1f} -\mathbf{v}_{i})^2 + \frac{1}{2} m_2 (\mathbf{v}_{2f} -\mathbf{v}_{i})^2$. Therefore the energy is not conserved.
+$$\frac{1}{2} m_1 |\mathbf{v}_{1i}|^2 + \frac{1}{2} m_2 |\mathbf{v}_{2i}|^2 \neq \frac{1}{2} m_1 |\mathbf{v}_{1f}|^2 + \frac{1}{2} m_2 |\mathbf{v}_{2f}|^2$$
 
 
 \section{Question}
