@@ -35,7 +35,7 @@
     \[a = \omega v\]
     Or using that the circumference of the circle is equal in both expressions:
     \[a t  = \omega v t\]
-    \[a = \omega t\]
+    \[a = \omega v\]
     Since $v = \omega r $, the commonly usable formulas are:
         \begin{gather*}
             a = \omega ^2 r\\
@@ -69,14 +69,47 @@
     \section{Tangential Acceleration}
         When the object is not in uniform circular motion, the object is
         experiencing a tangential acceleration. The tangential acceleration
-        is the rate of change of the magnitude of the velocity. The
+        is the rate of change of the magnitude of the tangential velocity. The
         acceleration is in the direction of the velocity vector, and it is
-        the result of the net force on the object.
-        \[a_t = \frac{dv}{dt}\]
-        \[a_t = \frac{d}{dt}(\omega r) = r \frac{d\omega}{dt}\]
+        the result of the net force on the object. Since the object's
+        tangential velocity is changing, its angular velocity is also
+        changing with proportion to the tangential acceleration. As :
+        \begin{gather*}
+            \Delta \omega = \frac{\Delta v}{r}\\
+            \frac{\Delta\omega}{\Delta t} = \frac{\Delta v}{\Delta t}
+            \frac{1}{r} = \frac{a_t}{r}\\
+            \alpha = \frac{\Delta \omega}{\Delta t} = \frac{a_t}{r}
+        \end{gather*}
+        Where $\alpha$ is the angular acceleration, the final equation can
+    also be written as:
         \[a_t = r \alpha\]
-        Where $\alpha$ is the angular acceleration, the rate of change of the
-        angular velocity.
+    \section{Rotational Kinematics}
+        Previously, we are able to derive the relationship between linear
+        tems and angular terms. The relationship is:
+        \begin{gather*}
+            x = \theta r\\
+            v = \omega r\\
+            a_t = \alpha r\\
+            a_c = \omega v\\
+        \end{gather*}
+
+        The rotational kinematics is similar to the linear kinematics, but
+        instead of using $x$, $v$, and $a$, it uses $\theta$, $\omega$, and
+        $\alpha$. The equations are:
+        \begin{gather*}
+            \theta = \theta_0 + \omega_0 t + \frac{1}{2} \alpha t^2\\
+            \omega = \omega_0 + \alpha t\\
+            \omega^2 = \omega_0^2 + 2\alpha(\theta - \theta_0)
+        \end{gather*}
+        The formulas that are valid for linear kinematics are also valid for
+        rotational motion.
+    \section{Torque}
+
+        Torque is the rotational equivalent of force. It is the force that
+        causes an object to rotate. The formula for torque is:
+        \[\tau = r F \sin(\theta)\]
+        Where $\theta$ is the angle between the force and the lever arm. The
+        unit for torque is $N \cdot m$.
     \section{Moment of Inertia}
     When calculating the kinetic energy of an object in circular motion,
     assuming it is a point mass, the formula is:
@@ -86,6 +119,11 @@
     The term $mr^2$ is called the moment of inertia($I$) of the object which
     measures how object resists to rotate, just like how mass measures
     resistence an object is to move linearly.
-
+    \section{Rotational Kinetic Energy}
+    The formula for rotational kinetic energy is:
+        \[KE = \frac{1}{2} I \omega^2\]
+    The formula is similar to the linear kinetic energy, but instead of using
+    mass, it uses moment of inertia.
+    \section{Conservation of Angular Momentum}
 
 \end{document}
