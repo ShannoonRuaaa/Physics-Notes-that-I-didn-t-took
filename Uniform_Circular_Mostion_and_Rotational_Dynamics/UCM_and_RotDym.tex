@@ -104,46 +104,70 @@
         \end{gather*}
         The formulas that are valid for linear kinematics are also valid for
         rotational motion.
-    \sectoion{Simple Machine}
-        Simple machines are devices that can be used to multiply or change
-        the direction of a force. The six simple machines are:
-        \begin{enumerate}
-            \item Lever
-            \item Wheel and Axle
-            \item Pulley
-            \item Inclined Plane
-            \item Wedge
-            \item Screw
-        \end{enumerate}
-        The idea of a simple machine is that the work done by the machine is the
-        same as the work done on the machine.
-        \[W_{in} = W_{out}\]
-        The mechanical advantage of a
-        simple machine is the ratio of the force exerted by the machine to the
-        force applied to the machine. On a lever, the mechanical advantage is
-        the ratio of the length of the lever arm to the length of the force
-        arm.
+%    \sectoion{Simple Machine}
+%        Simple machines are devices that can be used to multiply or change
+%        the direction of a force. The six simple machines are:
+%        \begin{enumerate}
+%            \item Lever
+%            \item Wheel and Axle
+%            \item Pulley
+%            \item Inclined Plane
+%            \item Wedge
+%            \item Screw
+%        \end{enumerate}
+%        The idea of a simple machine is that the work done by the machine is the
+%        same as the work done on the machine.
+%        \[W_{in} = W_{out}\]
+%        The mechanical advantage of a
+%        simple machine is the ratio of the force exerted by the machine to the
+%        force applied to the machine. On a lever, the mechanical advantage is
+%        the ratio of the length of the lever arm to the length of the force
+%        arm.
     \section{Torque}
+        In understanding the concept of torque, it is easier to gain an
+        intuitive sense of it with the context of simple machines. A lever
+        is can a good example.
 
+        In analyzing the force amplified by a lever, the concept is :
+        \[W_{in} = W_{out}\]
+        We can start with one side of the lever
+        \[F_{tan1} \cdot r_{1}\Delta \theta\]
+        on the other side of the lever, the force is:
+        \[F_{tan2}\cdot r{2}\Delta \theta\]
+        If we disreguard the angular portion of the work done, the result
+        will give us the torque of the lever in units of Jules.
+        \[\tau = r F_{tan}\]
+        The unit for torque is the same as work because it is from the work
+        energy but the "distane" is incomplete because its distance is
+        missing radians.
         Torque is the rotational equivalent of force. It is the force that
         causes an object to rotate. The formula for torque is:
         \[\tau = r F \sin(\theta)\]
-        Where $\theta$ is the angle between the force and the lever arm. The
-        unit for torque is $N \cdot m$.
+        Where $\theta$ is the angle between the force and the lever arm. And
+    the extra term of $\sin \theta$ is a projection of the force to the
+    tangential portion since the centripital force doesn't do any work.
     \section{Moment of Inertia}
-    When calculating the kinetic energy of an object in circular motion,
+    When calculating the kinetic energy of a point mass in circular motion,
     assuming it is a point mass, the formula is:
         \[KE = \frac{1}{2}mv^2\]
     Since $v = \omega r$, the formula can be rewritten as:
         \[KE = \frac{1}{2}m(\omega r)^2 = \frac{1}{2}m r^2 \omega^2\]
     The term $mr^2$ is called the moment of inertia($I$) of the object which
-    measures how object resists to rotate, just like how mass measures
-    resistence an object is to move linearly.
+    measures how object resists to rotate by the force $\alpha$. Different
+    shapes of object will have a different moment of inertia, and rotating
+    at a different point will also change the moment of inertia of the same
+    object. Moment of inertia is just a new definition of mass, like how
+    mass measures resistence an object is to move linearly.
     \section{Rotational Kinetic Energy}
-    The formula for rotational kinetic energy is:
+    The formula for rotational kinetic energy derived from the last section is:
         \[KE = \frac{1}{2} I \omega^2\]
     The formula is similar to the linear kinetic energy, but instead of using
     mass, it uses moment of inertia.
     \section{Conservation of Angular Momentum}
+    Angular momentum, similar to linear momentum, is defined as:
+        \[L = \Sigma \tau \Delta t  = I \Sigma \alpha \Delta t = I\omega\]
+    Different from consercation of energy that can be used in any movement of an object,
+    conservation of angular momentum can only be used in a rotational
+    ocntext and cannot be used with linear momentum.
 
 \end{document}
