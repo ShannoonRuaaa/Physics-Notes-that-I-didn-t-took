@@ -1,0 +1,71 @@
+%! Author = shannon
+%! Date = 10/19/24
+
+% Preamble
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage{amsmath}
+\title{Carnot Cycle}
+\author{}
+% Document
+\begin{document}
+\maketitle
+\section{Carnot Cycle}
+    The Carnot cycle is a theoretical thermodynamic cycle that is the most efficient cycle possible for converting a given amount of thermal energy into work or conversely, using work to pump heat. The cycle consists of four reversible processes:
+    \begin{enumerate}
+        \item Isothermal Expansion: The working substance absorbs heat from a high-temperature reservoir at constant temperature $T_H$ and expands, doing work on the surroundings.
+        \item Adiabatic Expansion: The working substance expands further, doing work on the surroundings without exchanging heat with the surroundings.
+        \item Isothermal Compression: The working substance is compressed at constant temperature $T_L$, rejecting heat to a low-temperature reservoir.
+        \item Adiabatic Compression: The working substance is compressed further, rejecting heat to the surroundings without exchanging heat with the surroundings.
+    \end{enumerate}
+    The efficiency of heat engine is given by:
+    \[\eta = 1- \frac{Q_l}{Q_i}\]
+    Where $\eta$ is the efficiency of the engine, $Q_l$ is the heat rejected
+to the low-temperature reservoir, and $Q_i$ is the heat absorbed from the
+high-temperature reservoir.
+    In the Carnot cycle,the only heat transfer occurs at the two isothermal,
+the heat transfer in the adiabatic processes is zero.
+\begin{gather*}
+    Q_i = nRT_H \ln(V_B/_A)\\
+    Q_l = nRT_L \ln(V_C/_D)\\
+\end{gather*}
+Combine the two equations into the efficiency expression, we get:
+\[\eta = 1 - \frac{nRT_L \ln(V_C/_D)}{nRT_H \ln(V_B/_A)}\]
+Because adiabatic processes, we are given expressions (proof in appendix):
+\[V_B/V_A = V_C/V_D\]
+    The efficiency of the Carnot cycle is given by:
+    \[\eta = 1 - \frac{T_L}{T_H}\]
+    where $\eta$ is the efficiency of the cycle, $T_L$ is the temperature of the low-temperature reservoir, and $T_H$ is the temperature of the high-temperature reservoir.
+\Appendix
+\section{Proof of Adiabatic Processes}\label{sec:proof-of-adiabatic-processes}
+    The adiabatic process have the following expression:
+    \[PV^\gamma = \text{constant}\]
+    Where $P$ is the pressure, $V$ is the volume, and $\gamma$ is the adiabatic index.
+    For each point in the Carnot cycle, we have the following expressions:
+    \begin{align*}
+        P_B V_B^\gamma = c_1\\
+        P_C V_C^\gamma = c_1\\
+        P_A V_A^\gamma = c_2\\
+        P_D V_D^\gamma = c_2\\
+    \end{align*}
+    Where $c_1$ and $c_2$ are constants.
+    \[
+        \frac{P_A V_A^\gamma}{P_B V_B^\gamma} = \frac{P_D V_D^\gamma}{P_C V_C^\gamma} = \frac{c_1}{c_2}
+    \]
+    The isothermal processes have the following expressions:
+    \begin{align*}
+        P_A V_A = P_B V_B\\
+        P_C V_C = P_D V_D\\
+    \end{align*}
+    Therefore, we have:
+    \[
+        \frac{P_A}{P_B} = \frac{V_B}{V_A}
+    \]
+    \[\frac{V_C}{V_D} = \frac{P_D}{P_C}\]
+    Combining the Isothermal and Adiabatic processes, we get:
+\[
+    \frac{V_A^{\gamma-1}}{V_B^{\gamma-1}} = \frac{ V_D^{\gamma-1}}{ V_C^{\gamma-1}}= \frac{c_1}{c_2}
+\]
+\[V_B/V_A = V_C/V_D\]
+\end{document}
