@@ -9,28 +9,11 @@
 
 % Document
 \begin{document}
-\section{Simple Harmonic motion}
-    Simple harmonic motion is a type of periodic motion where the restoring force is directly proportional to the displacement.
-    The motion is sinusoidal in time and demonstrates a single frequency. The equation of motion is:
-    \[x(t) = A \cos(\omega t + \phi)\]
-    where:
-    \begin{itemize}
-        \item $x(t)$ is the position of the object at time $t$
-        \item $A$ is the amplitude of the motion
-        \item $\omega$ is the angular frequency of the motion
-        \item $\phi$ is the phase angle
-    \end{itemize}
-    The angular frequency $\omega$ is related to the period $T$ of the motion by:
-    \[\omega = \frac{2\pi}{T}\]
-    The velocity and acceleration of the object in simple harmonic motion are given by:
-    \[v(t) = -A\omega \sin(\omega t + \phi)\]
-    \[a(t) = -A\omega^2 \cos(\omega t + \phi)\]
-    The velocity is out of phase with the position by $\frac{\pi}{2}$, and the acceleration is out of phase with the position by $\pi$.
 \section{Spring Mass System}
     A common example of simple harmonic motion is the spring-mass system, where a mass $m$ is attached to a spring with spring constant $k$.
     The equation of motion for the spring-mass system is:
     \[m\frac{d^2x}{dt^2} = -kx\]
-    This equation can be solved to obtain the position of the mass as a function of time.
+    Easily solve this equation by verifying that $x(t) = A\cos(\omega t) + B\sin(\omega t)$ or equivalently it is the same as $x(t) = A\cos(\omega t + \phi)$. Each has their own advantage, where in the first equation, A and B can be easilly calculated for the initial condition, while the second form is much more compact. 
     The angular frequency $\omega$ of the spring-mass system is given by:
     \[\omega = \sqrt{\frac{k}{m}}\]
     The period $T$ of the motion is given by:
@@ -38,6 +21,26 @@
     The velocity and acceleration of the mass in the spring-mass system are given by:
     \[v(t) = -A\omega \sin(\omega t + \phi)\]
     \[a(t) = -A\omega^2 \cos(\omega t + \phi)\]
+ \section{Damped Oscillator }
+ 
+ 	A common model of damping force such as air drag takes form $F=-cv$, that the force is proportional to the velocity of the object, and the negative sign signifies that it is agianst the motion. Now we can write out $F=ma$:
+ 	\[F = -cv-kx = ma\]
+ 	\[ma + cv+kx = 0\]
+ 	\[\frac{d^2x}{dt^2}  + \frac{c}{m} \frac{dx}{dt} + \frac{k}{m} x = 0\]
+ 	This is a second order linear differential equation. Using experimental observation, we can "guess" the solution to take form $x(t) = A e^{\gamma t} \cos(\omega t + \phi) $. The initial conditions of this problem is encoded by A and $\phi$ the exact process will be covered in the Appendix.
+ 	With the given x(t)
+ 	
+ \section{Damped Driven Oscillator}
+ 	Let's say that there's an outside force such as an motor in driving the oscillator, and such a force is periodic, which can be modeled as $F = F_0\cos(\omega_0 t + \phi_0)$. Then how the system can be responding to such an force is worth studying. Writing $F = ma$:
+ 	\[F = -kx-cv+F_0\cos(\omega t + \phi_0) = ma\]
+ 	\[ma+kx+cv = F_0\cos(\omega t + \phi_0)\]
+ 	\[\frac{d^2x}{dt^2}  + \frac{c}{m} \frac{dx}{dt} + \frac{k}{m} x = \frac{F_0}{m}\cos(\omega_0 t + \phi_0)\]
+ 	In the previous solution we already solved the case of left hand side equaling to 0, It's only necessary to solve for one particular solution to obtain the complete solution. 
+ 	
+ 	
+ \section{Resonance Frequency}
+ 
+ 	
 \section{Pendulums}
     Another not so standard example of simple harmonic motion is the
     pendulum. Although the motion of a pendulum is not perfectly simple harmonic,
@@ -65,15 +68,5 @@
     \[E_0 = mgl(1-\cos \theta _0) =  \frac{1}{2} m v^2 + mgl(1 - \cos\theta)\]
     \[v = \sqrt{2gl( \cos\theta -\cos \theta_0 )}\]
 
-\section{Resonance Frequency}
-Assuming there is a force that hits the spring mass system at a frequency $f$
-. It would be the most optimal to hit the spring mass system when the mass
-is at its largest velocity and the force is the same direction with the
-velocity vector. This is because the force will add to the velocity of the
-mass, increasing the kinetic energy of the system as well as the amplitude
-for each period. As time goes on, the amplitude can approach to infinity in
-the ideal case. Based on the observation the
-frequency $f$ must be the same as the frequency of the spring mass system.
-However, it doesn't have to be at the same timing, as the force will slowly
-overcome the damping phase and be in phase with the system.
+
 \end{document}
