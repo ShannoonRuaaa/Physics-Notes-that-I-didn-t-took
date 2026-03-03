@@ -10,25 +10,79 @@
 % Document
 \begin{document}
 \section{Spring Mass System}
-    A common example of simple harmonic motion is the spring-mass system, where a mass $m$ is attached to a spring with spring constant $k$.
-    The equation of motion for the spring-mass system is:
-    \[m\frac{d^2x}{dt^2} = -kx\]
-    Easily solve this equation by verifying that $x(t) = A\cos(\omega t) + B\sin(\omega t)$ or equivalently it is the same as $x(t) = A\cos(\omega t + \phi)$. Each has their own advantage, where in the first equation, A and B can be easilly calculated for the initial condition, while the second form is much more compact. 
-    The angular frequency $\omega$ of the spring-mass system is given by:
-    \[\omega = \sqrt{\frac{k}{m}}\]
-    The period $T$ of the motion is given by:
-    \[T = \frac{2\pi}{\omega} = 2\pi\sqrt{\frac{m}{k}}\]
-    The velocity and acceleration of the mass in the spring-mass system are given by:
-    \[v(t) = -A\omega \sin(\omega t + \phi)\]
-    \[a(t) = -A\omega^2 \cos(\omega t + \phi)\]
+   A standard model of \textbf{simple harmonic motion} is the spring--mass system: a mass $m$ attached to an ideal spring with spring constant $k$. We assume the spring obeys Hooke’s law and that there is no damping (no friction or air resistance), so the only force acting on the mass is the restoring force of the spring.
+   
+   Hooke’s law states that the force exerted by the spring is proportional to the displacement from equilibrium and points in the opposite direction:
+   \[
+   F = -kx.
+   \]
+   
+   Using Newton’s second law $F = m\frac{d^2x}{dt^2}$, we obtain the equation of motion:
+   \[
+   m\frac{d^2x}{dt^2} = -kx,
+   \]
+   or equivalently,
+   \[
+   \frac{d^2x}{dt^2} + \frac{k}{m}x = 0.
+   \]
+   
+   This is a second-order linear differential equation with constant coefficients. Its general solution is
+   \[
+   x(t) = A\cos(\omega t) + B\sin(\omega t),
+   \]
+   where $A$ and $B$ are constants determined by the initial position and velocity.
+   
+   An equivalent and more compact form is
+   \[
+   x(t) = A_0 \cos(\omega t + \phi),
+   \]
+   where $A_0 = \sqrt{A^2 + B^2}$ is the amplitude and $\phi$ is the phase constant.
+   
+   The angular frequency is
+   \[
+   \omega = \sqrt{\frac{k}{m}},
+   \]
+   so the period of oscillation is
+   \[
+   T = \frac{2\pi}{\omega} = 2\pi\sqrt{\frac{m}{k}}.
+   \]
+   
+   From the position function, we compute velocity and acceleration:
+   \[
+   v(t) = \frac{dx}{dt} = -A_0 \omega \sin(\omega t + \phi),
+   \]
+   \[
+   a(t) = \frac{d^2x}{dt^2} = -A_0 \omega^2 \cos(\omega t + \phi).
+   \]
+   
+   Since $x(t) = A_0 \cos(\omega t + \phi)$, we see that
+   \[
+   a(t) = -\omega^2 x(t).
+   \]
+   Thus, acceleration is proportional to displacement and opposite in direction, which characterizes simple harmonic motion.
+   
+   Because there is no damping, mechanical energy is conserved. The total energy is the sum of kinetic and potential energy:
+   \[
+   E = \frac{1}{2}mv^2 + \frac{1}{2}kx^2.
+   \]
+   
+   At the turning points (maximum displacement), the velocity is zero and $x = A_0$, so all the energy is stored as spring potential energy:
+   \[
+   E = \frac{1}{2}kA_0^2.
+   \]
+   
+   At equilibrium ($x = 0$), all the energy is kinetic. The system continuously exchanges energy between kinetic and potential forms while keeping the total energy constant.
  \section{Damped Oscillator }
  
- 	A common model of damping force such as air drag takes form $F=-cv$, that the force is proportional to the velocity of the object, and the negative sign signifies that it is agianst the motion. Now we can write out $F=ma$:
+ 	To start the analysis of damping force such as air drag takes form $F=-cv$, that the force is proportional to the velocity of the object, and the negative sign signifies that it is against the motion. Now we can write out $F=ma$:
  	\[F = -cv-kx = ma\]
  	\[ma + cv+kx = 0\]
  	\[\frac{d^2x}{dt^2}  + \frac{c}{m} \frac{dx}{dt} + \frac{k}{m} x = 0\]
- 	This is a second order linear differential equation. Using experimental observation, we can "guess" the solution to take form $x(t) = A e^{\gamma t} \cos(\omega t + \phi) $. The initial conditions of this problem is encoded by A and $\phi$ the exact process will be covered in the Appendix.
- 	With the given x(t)
+ 	This is a second order linear differential equation. Using experimental observation, we can "guess" the solution to take form $x(t) = A_0 e^{\gamma t} \cos(\omega t + \phi) $. The initial conditions of this problem is encoded by A and $\phi$ the exact process will be covered in the Appendix.
+ 	With the given $x(t)$, we will verify that $\gamma = \frac{c}{m}$ and $\omega = \sqrt{\frac{k}{m}}$
+ 	\subsection{Energy Lost and Quality Factor}
+ 	Following problem arises, when how much energy is sucked out of the system. Knowing that energy is only not conserved because of the drag force, simply integrate the work done by the drag force and we can find out the energy lost. With the work energy theorem: 
+ 	
  	
  \section{Damped Driven Oscillator}
  	Let's say that there's an outside force such as an motor in driving the oscillator, and such a force is periodic, which can be modeled as $F = F_0\cos(\omega_0 t + \phi_0)$. Then how the system can be responding to such an force is worth studying. Writing $F = ma$:
@@ -38,7 +92,7 @@
  	In the previous solution we already solved the case of left hand side equaling to 0, It's only necessary to solve for one particular solution to obtain the complete solution. 
  	
  	
- \section{Resonance Frequency}
+ 	\subsection{Resonance Frequency}
  
  	
 \section{Pendulums}
@@ -67,6 +121,12 @@
     enregy theorem. The velocity of the pendulum is given by:
     \[E_0 = mgl(1-\cos \theta _0) =  \frac{1}{2} m v^2 + mgl(1 - \cos\theta)\]
     \[v = \sqrt{2gl( \cos\theta -\cos \theta_0 )}\]
+    \[\omega = \sqrt{2\frac{g}{l}( \cos\theta -\cos \theta_0 )}\]
+    Integrating it gives an formula for exact position of the pendulum in polar coordinate:
+   	\[t = \int_{\theta_0}^{\theta(t)} \frac{1}{\sqrt{2gl( \cos\theta -\cos \theta_0 )}} d \theta\] 
+    
+\section{Small Angle Approximation}
 
+\appendix
 
 \end{document}
