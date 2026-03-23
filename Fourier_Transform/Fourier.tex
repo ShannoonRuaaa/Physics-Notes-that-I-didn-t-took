@@ -1,0 +1,43 @@
+\documentclass[]{article}
+
+%opening
+\title{Fourier Transform}
+\author{}
+
+\begin{document}
+
+\maketitle
+
+
+\section{Fourier Transform}
+In this article, the Fourier Transformed is defined as
+\[\mathcal{F}\{f(t)\}  = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty} f(t)e^{-i\omega t}dt\]
+and that the inverse of Fourier Transform is:\[\mathcal{F}^{-1}\{F(\omega)\}  = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty} F(\omega)e^{i\omega t}d\omega\]
+
+By definition, the inverse of a function's transform should recover its original function. Then:
+\[f(t) = \mathcal{F}^{-1} \{\mathcal{F}\{f(t)\}\}  = \frac{1}{2\pi}\int_{-\infty}^{\infty} (\int_{-\infty}^{\infty}
+f(t')e^{-i\omega t'}dt')e ^{i\omega t}d\omega\]
+Combine the integral, and interchange order of integration, 
+\[f(t)  =\frac{1}{2\pi} \int_{-\infty}^{\infty} \int_{-\infty}^{\infty}
+f(t')e^{-i \omega(t'-t)}  d\omega dt' \]
+Since $f(t')$ behaves like a constant in $d\omega$, then:
+\[f(t)  = \int_{-\infty}^{\infty} f(t')\left(\frac{1}{2\pi}\int_{-\infty}^{\infty}
+e^{-i \omega(t'-t)}  d\omega\right) dt' \]
+the integral inside is a function of $t'-t$ and now define:
+\[\delta(T) = \frac{1}{2\pi}\int_{-\infty}^{\infty}
+e^{-i \omega(T)}  d\omega\]
+However, in this integral, the function remains to be $0$ and blows up and does not converse when $T=0$. So what can be done to justify this function defined by this integral to be reasonable. 
+
+\section{Distribution}
+The justification of $\delta(T)$ is through operator-valued distribution, that is give me a function $f$, tell me what $\delta$ does to $f$. From the example above, it has to be that $\delta$ picks out the functions value at $0$, so that definition of Fourier transform can make sense:
+
+\[f(t)  = \int_{-\infty}^{\infty} f(t') \delta(t'-t) dt' \]
+
+Now, there are another cases that Fourier transforms of innocent looking $sin(x)$, $cos(x)$ will have trouble in discussing for their convergence. Now, taking inspiration from delta function, we define how a distribution $T$ acting on the function $f$ as:
+\[F(t)=<T(x,t),f(x)> = \int_{-\infty}^{\infty} T(x,t)f(x)dx\]
+And assume that $f(x)$ converges absolutely in various circumstances and in Fourier transform, what can happen to T?
+
+\[<T,\mathcal{F}^{-1}f> = \int_{-\infty}^{\infty} T(x,t) \int_{-\infty}^{\infty}f(\omega)e^{i\omega x} d\omega dx\] 
+
+
+\end{document}
