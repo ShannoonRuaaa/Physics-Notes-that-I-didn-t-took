@@ -1,5 +1,7 @@
 \documentclass[]{article}
 
+\usepackage{amsmath, amssymb}
+
 %opening
 \title{Fourier Transform}
 \author{}
@@ -8,36 +10,53 @@
 
 \maketitle
 
-
 \section{Fourier Transform}
-In this article, the Fourier Transformed is defined as
-\[\mathcal{F}\{f(t)\}  = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty} f(t)e^{-i\omega t}dt\]
-and that the inverse of Fourier Transform is:\[\mathcal{F}^{-1}\{F(\omega)\}  = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty} F(\omega)e^{i\omega t}d\omega\]
 
-By definition, the inverse of a function's transform should recover its original function. Then:
-\[f(t) = \mathcal{F}^{-1} \{\mathcal{F}\{f(t)\}\}  = \frac{1}{2\pi}\int_{-\infty}^{\infty} (\int_{-\infty}^{\infty}
-f(t')e^{-i\omega t'}dt')e ^{i\omega t}d\omega\]
-Combine the integral, and interchange order of integration, 
+The Fourier transform is a powerful tool used in signal decomposition, solving partial differential equations, and quantum mechanics. It decomposes a function into its constituent frequencies, providing a bridge between the time (or spatial) domain and the frequency domain.
+
+In this article, the Fourier Transform is defined as
+\[\mathcal{F}\{f(t)\}  = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty} f(t)e^{-i\omega t}\,dt\]
+and the inverse Fourier Transform is:
+\[\mathcal{F}^{-1}\{F(\omega)\}  = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty} F(\omega)e^{i\omega t}\,d\omega\]
+
+By definition, the inverse of a function's transform should recover the original function. Then:
+\[f(t) = \mathcal{F}^{-1} \{\mathcal{F}\{f(t)\}\}  = \frac{1}{2\pi}\int_{-\infty}^{\infty} \left(\int_{-\infty}^{\infty}
+f(t')e^{-i\omega t'}\,dt'\right)e ^{i\omega t}\,d\omega\]
+Combining the integrals and interchanging the order of integration,
 \[f(t)  =\frac{1}{2\pi} \int_{-\infty}^{\infty} \int_{-\infty}^{\infty}
-f(t')e^{-i \omega(t'-t)}  d\omega dt' \]
-Since $f(t')$ behaves like a constant in $d\omega$, then:
+f(t')e^{-i \omega(t'-t)}  \,d\omega\, dt' \]
+Since $f(t')$ behaves like a constant with respect to the $\omega$ integration:
 \[f(t)  = \int_{-\infty}^{\infty} f(t')\left(\frac{1}{2\pi}\int_{-\infty}^{\infty}
-e^{-i \omega(t'-t)}  d\omega\right) dt' \]
-the integral inside is a function of $t'-t$ and now define:
-\[\delta(T) = \frac{1}{2\pi}\int_{-\infty}^{\infty}
-e^{-i \omega(T)}  d\omega\]
-However, in this integral, the function remains to be $0$ and blows up and does not converse when $T=0$. So what can be done to justify this function defined by this integral to be reasonable. 
+e^{-i \omega(t'-t)}  \,d\omega\right) dt' \]
+The inner integral is a function of $t'-t$. We define:
+\[\delta(\tau) = \frac{1}{2\pi}\int_{-\infty}^{\infty}
+e^{-i \omega \tau}  \,d\omega\]
+However, this integral does not converge in the classical sense. When $\tau \neq 0$, the integrand oscillates and the integral evaluates to $0$. When $\tau = 0$, the integrand is $1$ everywhere, and the integral diverges. So how can we justify this object as a meaningful mathematical entity?
 
 \section{Distribution}
-The justification of $\delta(T)$ is through operator-valued distribution, that is give me a function $f$, tell me what $\delta$ does to $f$. From the example above, it has to be that $\delta$ picks out the functions value at $0$, so that definition of Fourier transform can make sense:
 
-\[f(t)  = \int_{-\infty}^{\infty} f(t') \delta(t'-t) dt' \]
+The justification of $\delta(\tau)$ is through the theory of \textit{distributions} (also called generalized functions). Rather than asking what $\delta$ \textit{is} as a function, we ask what $\delta$ \textit{does} when paired with a test function $f$. From the analysis above, $\delta$ must pick out the value of $f$ at $0$ in order for the definition of the Fourier transform to remain consistent:
+\[f(t)  = \int_{-\infty}^{\infty} f(t') \,\delta(t'-t)\, dt' \]
 
-Now, there are another cases that Fourier transforms of innocent looking $sin(x)$, $cos(x)$ will have trouble in discussing for their convergence. Now, taking inspiration from delta function, we define how a distribution $T$ acting on the function $f$ as:
-\[F(t)=<T(x,t),f(x)> = \int_{-\infty}^{\infty} T(x,t)f(x)dx\]
-And assume that $f(x)$ converges absolutely in various circumstances and in Fourier transform, what can happen to T?
+More generally, even innocent-looking functions such as $\sin(x)$ and $\cos(x)$ are not classically Fourier-transformable, since their integrals do not converge absolutely. Taking inspiration from the delta function, we define a distribution $\Phi$ acting on a test function $f$ via the pairing:
+\[F(t)= \langle \Phi(x,t),\, f(x) \rangle = \int_{-\infty}^{\infty} \Phi(x,t)\,f(x)\,dx\]
+Here we assume that $f(x)$ belongs to a suitable space of test functions (e.g.\ the Schwartz space $\mathcal{S}$), which ensures absolute convergence. Now, consider what happens when we apply the Fourier transform in the distributional sense:
+\[\langle \Phi,\,\mathcal{F}^{-1}f \rangle = \int_{-\infty}^{\infty} \Phi(x,t) \int_{-\infty}^{\infty}f(\omega)\,e^{i\omega x}\, d\omega\, dx\] 
 
-\[<T,\mathcal{F}^{-1}f> = \int_{-\infty}^{\infty} T(x,t) \int_{-\infty}^{\infty}f(\omega)e^{i\omega x} d\omega dx\] 
+\subsection{Example: Fourier Transform of a Constant}
 
+As a concrete application, consider $f(t) = 1$. Classically, $\int_{-\infty}^{\infty} e^{-i\omega t}\,dt$ diverges. However, in the distributional sense:
+\[\mathcal{F}\{1\} = \sqrt{2\pi}\,\delta(\omega)\]
+This can be verified by checking the pairing with any test function $g(\omega)$:
+\[\langle \mathcal{F}\{1\},\, g \rangle = \int_{-\infty}^{\infty} \sqrt{2\pi}\,\delta(\omega)\,g(\omega)\,d\omega = \sqrt{2\pi}\,g(0)\]
+which is exactly what the formal computation yields.
+
+\subsection{Example: Fourier Transform of Trigonometric Functions}
+
+Similarly, using Euler's formula $\cos(\omega_0 t) = \frac{1}{2}(e^{i\omega_0 t} + e^{-i\omega_0 t})$, one obtains:
+\[\mathcal{F}\{\cos(\omega_0 t)\} = \sqrt{\frac{\pi}{2}}\left[\delta(\omega - \omega_0) + \delta(\omega + \omega_0)\right]\]
+and likewise:
+\[\mathcal{F}\{\sin(\omega_0 t)\} = i\sqrt{\frac{\pi}{2}}\left[\delta(\omega + \omega_0) - \delta(\omega - \omega_0)\right]\]
+These results confirm that a pure sinusoid in the time domain corresponds to sharp spikes (delta functions) at the associated frequencies in the frequency domain.
 
 \end{document}
