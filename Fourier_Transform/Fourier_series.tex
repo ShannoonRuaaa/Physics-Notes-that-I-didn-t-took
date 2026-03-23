@@ -1,0 +1,35 @@
+\documentclass[]{article}
+
+%opening
+\title{}
+\author{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+
+\end{abstract}
+
+\section{Fourier Series}
+Periodic phenomenon is a quite general in nature, from planetary motions, ocean waves, and sound waves, and heat in abstract term. In attempting to describe them, sinusoidal functions turns out to be convenient representations of them, for their differentiable features, and question becomes if periodic functions can be represented by sinusoidal. 
+
+Assume yes, and we have periodic function $f(t) = f(t+2\pi)$ then we must be able to write:
+\[f(t) = \sum_{i = 0}^{N}A_i \cdot \sin(it) + B_i\cdot\cos(it)\]
+
+And to find such $A_i$ and $B_i$, we can assume that they exists, namely solving for $A_n$, $n<N$ and solve for them using elementary algebra and calculus:
+
+\[f(t)\sin(nt) = \sum_{i = 0}^{N}A_i \cdot \sin(it)\sin(nt) + B_i\cdot\cos(it)\sin(nt)\]
+Now integrate the function over interval $[-\pi, \pi]$, reason being that period of $\sin(nt)$ is $2\pi$, and it vanishes after integrating. 
+
+\[\int_{-\pi}^{\pi} f(t)\sin(nt)  dt = \int_{-\pi}^{\pi}\left(\sum_{i = 0}^{N}A_i \cdot \sin(it)\sin(nt) + B_i\cdot\cos(it)\sin(nt) \right)dt\]
+
+And for good reasons, that we believe the integrating order doesn't matter:
+
+\[\int_{-\pi}^{\pi} f(t)\sin(nt)  dt = \sum_{i = 0}^{N}A_i \cdot \int_{-\pi}^{\pi} \sin(it)\sin(nt)dt + B_i\cdot\int_{-\pi}^{\pi}\cos(it)\sin(nt) dt\]
+
+
+
+
+\end{document}
