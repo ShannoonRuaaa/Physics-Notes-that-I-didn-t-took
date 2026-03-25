@@ -1,6 +1,7 @@
 \documentclass[]{article}
 
 %opening
+\usepackage{amsmath}
 \title{}
 \author{}
 
@@ -8,28 +9,84 @@
 
 \maketitle
 
-\begin{abstract}
-
-\end{abstract}
-
 \section{Fourier Series}
-Periodic phenomenon is a quite general in nature, from planetary motions, ocean waves, and sound waves, and heat in abstract term. In attempting to describe them, sinusoidal functions turns out to be convenient representations of them, for their differentiable features, and question becomes if periodic functions can be represented by sinusoidal. 
+Periodic phenomena are quite general in nature, from planetary motions, ocean waves, and sound waves, to heat flow in more abstract terms. In attempting to describe them, sinusoidal functions turn out to be convenient representations due to their differentiable properties. The question then becomes: can any periodic function be represented by a sum of sinusoids?
 
-Assume yes, and we have periodic function $f(t) = f(t+2\pi)$ then we must be able to write:
-\[f(t) = \sum_{i = 0}^{N}A_i \cdot \sin(it) + B_i\cdot\cos(it)\]
+Assume yes, and suppose we have a periodic function $f(t) = f(t+2\pi)$. Then we must be able to write:
+\[f(t) = \frac{B_0}{2} + \sum_{i = 1}^{N}A_i \cdot \sin(it) + B_i\cdot\cos(it)\]
+Note that the sum begins at $i=1$. Since $\sin(0 \cdot t) = 0$, there is no $A_0$ term. And since $\cos(0 \cdot t) = 1$, the term $B_0$ is simply a constant. We write it as $B_0/2$ by convention, so that the formula for $B_n$ derived below applies uniformly for all $n \geq 0$.
 
-And to find such $A_i$ and $B_i$, we can assume that they exists, namely solving for $A_n$, $n<N$ and solve for them using elementary algebra and calculus:
+\subsection{Solving for $A_n$}
+To find such $A_i$ and $B_i$, we assume they exist and solve for them using elementary algebra and calculus. To isolate $A_n$ for some $n \geq 1$, multiply both sides by $\sin(nt)$:
 
-\[f(t)\sin(nt) = \sum_{i = 0}^{N}A_i \cdot \sin(it)\sin(nt) + B_i\cdot\cos(it)\sin(nt)\]
-Now integrate the function over interval $[-\pi, \pi]$, reason being that period of $\sin(nt)$ is $2\pi$, and it vanishes after integrating. 
+\[f(t)\sin(nt) = \frac{B_0}{2}\sin(nt) + \sum_{i = 1}^{N}A_i \cdot \sin(it)\sin(nt) + B_i\cdot\cos(it)\sin(nt)\]
+Now integrate over the interval $[-\pi, \pi]$. The reason for this choice is that $\sin(nt)$ has period $2\pi$, and integrating over a full period will cause most terms to vanish:
 
-\[\int_{-\pi}^{\pi} f(t)\sin(nt)  dt = \int_{-\pi}^{\pi}\left(\sum_{i = 0}^{N}A_i \cdot \sin(it)\sin(nt) + B_i\cdot\cos(it)\sin(nt) \right)dt\]
+\[\int_{-\pi}^{\pi} f(t)\sin(nt) \, dt = \int_{-\pi}^{\pi} \frac{B_0}{2}\sin(nt)\,dt + \sum_{i = 1}^{N}A_i  \int_{-\pi}^{\pi} \sin(it)\sin(nt)\,dt + B_i \int_{-\pi}^{\pi}\cos(it)\sin(nt) \,dt\]
+where we have interchanged the order of summation and integration (justified when the sum is finite, and under appropriate convergence conditions when $N \to \infty$).
 
-And for good reasons, that we believe the integrating order doesn't matter:
+\subsubsection*{The $B_0$ term vanishes}
+Since $\sin(nt)$ is an odd function and the interval $[-\pi, \pi]$ is symmetric about the origin:
+\[\int_{-\pi}^{\pi} \frac{B_0}{2}\sin(nt)\,dt = 0\]
 
-\[\int_{-\pi}^{\pi} f(t)\sin(nt)  dt = \sum_{i = 0}^{N}A_i \cdot \int_{-\pi}^{\pi} \sin(it)\sin(nt)dt + B_i\cdot\int_{-\pi}^{\pi}\cos(it)\sin(nt) dt\]
+\subsubsection*{The $\cos(it)\sin(nt)$ terms vanish}
+The product $\cos(it)\sin(nt)$ is an odd function (even $\times$ odd $=$ odd), and since the bounds are symmetric:
+\[\int_{-\pi}^{\pi} \cos(it)\sin(nt)\,dt = 0\]
+for all integers $i \geq 1$. Therefore:
+\[\int_{-\pi}^{\pi} f(t)\sin(nt) \, dt = \sum_{i = 1}^{N}A_i  \int_{-\pi}^{\pi} \sin(it)\sin(nt)\,dt\]
 
+\subsubsection*{Orthogonality of $\sin(it)\sin(nt)$}
+When $i \neq n$, apply the product-to-sum identity:
+\[\sin(nt)\sin(it) = \frac{1}{2}[\cos((n-i)t) - \cos((n+i)t)]\]
+Since $(n-i)$ and $(n+i)$ are both nonzero integers, $\cos(kt)$ integrates to $0$ over a full period:
+\[\int_{-\pi}^{\pi} \cos(kt)\,dt = \left[\frac{\sin(kt)}{k}\right]_{-\pi}^{\pi} = 0 \quad \text{for any nonzero integer } k\]
+Therefore:
+\[\int_{-\pi}^{\pi} \sin(it)\sin(nt)\,dt = 0 \quad \text{when } i \neq n\]
 
+When $i = n$, we need to evaluate:
+\[I = \int_{-\pi}^{\pi} \sin^2(nt)\,dt\]
+Observe that $\cos^2(nt)$ is simply $\sin^2(nt)$ shifted by a quarter period. Over a full period $[-\pi, \pi]$, a shift does not change the integral, so:
+\[I = \int_{-\pi}^{\pi} \sin^2(nt)\,dt = \int_{-\pi}^{\pi} \cos^2(nt)\,dt\]
+Adding these two together and using $\sin^2(nt) + \cos^2(nt) = 1$:
+\[2I = \int_{-\pi}^{\pi} 1\,dt = 2\pi\]
+Therefore $I = \pi$. (Alternatively, one can apply the identity $\sin^2(\theta) = \frac{1}{2}(1 - \cos(2\theta))$ and note that $\cos(2nt)$ integrates to $0$ over a full period.)
+
+\subsubsection*{Result}
+Only the $i = n$ term survives, giving:
+\[\int_{-\pi}^{\pi} f(t)\sin(nt) \, dt  = A_n \cdot \pi\]
+\[A_n = \frac{1}{\pi}\int_{-\pi}^{\pi} f(t)\sin(nt) \, dt \]
+
+\subsection{Solving for $B_n$}
+The derivation for $B_n$ is identical: multiply both sides of the original series by $\cos(nt)$ and integrate. The same orthogonality arguments apply, yielding:
+\[B_n = \frac{1}{\pi}\int_{-\pi}^{\pi} f(t)\cos(nt) \, dt \]
+Note that when $n = 0$, this gives $B_0 = \frac{1}{\pi}\int_{-\pi}^{\pi} f(t)\,dt$, which is indeed twice the average value of $f(t)$ over one period --- confirming why the $B_0/2$ convention is useful.
+
+\subsection{Summary}
+The Fourier series of a $2\pi$-periodic function $f(t)$ is:
+\[f(t) = \frac{B_0}{2} + \sum_{n=1}^{\infty} A_n \sin(nt) + B_n \cos(nt)\]
+with coefficients:
+\[A_n = \frac{1}{\pi}\int_{-\pi}^{\pi} f(t)\sin(nt)\,dt, \qquad B_n = \frac{1}{\pi}\int_{-\pi}^{\pi} f(t)\cos(nt)\,dt\]
+
+\subsubsection*{Odd and Even Functions}
+It is worth observing that if $f(t)$ is odd, then $B_n = 0$ for all $n$, and if $f(t)$ is even, then $A_n = 0$ for all $n$. This follows directly from symmetry: an odd function satisfies $f(-t) = -f(t)$, and $\cos(nt)$ is even, so the product $f(t)\cos(nt)$ is odd. Integrating an odd function over a symmetric interval gives $0$, hence $B_n = 0$. By the same reasoning, an even function satisfies $f(-t) = f(t)$, and $\sin(nt)$ is odd, so the product $f(t)\sin(nt)$ is odd, giving $A_n = 0$.
+
+One can also see this from the series itself. Suppose for contradiction that some $B_n \neq 0$ for an odd function. Then since $f(t) + f(-t) = 0$, the cosine terms must also cancel:
+\[B_n \cos(nt) + B_n \cos(-nt) = 2B_n\cos(nt) \neq 0\]
+which contradicts the requirement that $f(t) + f(-t) = 0$. A similar argument shows $A_n = 0$ for even functions.
+
+\subsubsection*{Complex Exponential Form}
+An alternative way of writing the Fourier series uses Euler's identity $e^{i\theta} = \cos(\theta) + i\sin(\theta)$. Since:
+\[\cos(nt) = \frac{e^{int} + e^{-int}}{2}, \qquad \sin(nt) = \frac{e^{int} - e^{-int}}{2i}\]
+the series can be rewritten as:
+\[f(t) = \sum_{n=-\infty}^{\infty} C_n \, e^{int}\]
+where the complex coefficients $C_n$ are related to $A_n$ and $B_n$ by:
+\[C_0 = \frac{B_0}{2}, \qquad C_n = \frac{B_n - iA_n}{2}, \qquad C_{-n} = \frac{B_n + iA_n}{2} \quad (n \geq 1)\]
+or equivalently, computed directly as:
+\[C_n = \frac{1}{2\pi}\int_{-\pi}^{\pi} f(t)\,e^{-int}\,dt\]
+This compact form makes the connection to the Fourier Transform more transparent: as the period grows to infinity, the discrete sum over $n$ becomes a continuous integral over frequencies.
+
+\subsection{On Convergence}
+A natural question arises: given a sequence of coefficients $A_n$ and $B_n$, does the series actually converge to $f(t)$? This is a subtle issue. The Dirichlet conditions provide sufficient criteria: if $f(t)$ is piecewise continuous with a finite number of discontinuities and extrema on $[-\pi, \pi]$, then the Fourier series converges to $f(t)$ at points of continuity, and to the average of the left and right limits at points of discontinuity. A more general treatment in terms of $L^2$ convergence (convergence in the mean-square sense) is deferred to a later discussion.
 
 
 \end{document}
